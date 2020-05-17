@@ -32,8 +32,8 @@ def get_track(md_id):
     return(dt_md_sales.to_json())
 
 #--mendapatkan total sales dari suatu negara
-@app.route('/country/<nama>', methods=['GET'])
-def get_genre(nama):
+@app.route('/country/<country_nm>', methods=['GET'])
+def get_genre(country_nm):
     db_conn = sqlite3.connect("chinook.db")
     dt_country_sales = pd.read_sql_query("SELECT inv.BillingCountry as Country, gnr.Name as Genre, md_typ.Name as Media_Nm, sum(inv.Total) as Total\
                                           FROM invoices as inv, invoice_items as inv_itm, tracks as trk, genres as gnr, media_types as md_typ \
@@ -48,7 +48,7 @@ def get_genre(nama):
                                           AND \
                                           inv.BillingCountry = ? \
                                           GROUP BY Genre \
-                                          ORDER BY Total DESC", db_conn, params=(nama,))
+                                          ORDER BY Total DESC", db_conn, params=(country_nm,))
     return(dt_country_sales.to_json())   
 
 #--mendapatkan total penjualan album
