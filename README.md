@@ -35,7 +35,7 @@ input md_id with one of the MediaTypeId as below :
 - 4 (Purchased AAC audio file)
 - 5 (AAC audio file)
     
-3. /country/<nama>, method = GET
+3. /country/<country_nm>, method = GET
 Dynamic Endpoint, returning total sales base on country.
 input nama with the country name
 
@@ -48,7 +48,7 @@ Static Endpoint, returning total sales of Sales Support Agent per-month period.
 If you want to try it, you can access (copy-paste the link as below) : 
 - https://api-app-capstone.herokuapp.com/employee
 - https://api-app-capstone.herokuapp.com/media/<md_id>
-- https://api-app-capstone.herokuapp.com/country/<nama>
+- https://api-app-capstone.herokuapp.com/country/<country_nm>
 - https://api-app-capstone.herokuapp.com/albums
 - https://api-app-capstone.herokuapp.com/sales
 
