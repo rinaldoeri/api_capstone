@@ -47,8 +47,8 @@ Static Endpoint, returning total sales of Sales Support Agent per-month period.
 
 If you want to try it, you can access (copy-paste the link as below) : 
 - https://api-app-capstone.herokuapp.com/employee
-- https://api-app-capstone.herokuapp.com/media/<md_id>
-- https://api-app-capstone.herokuapp.com/country/<country_nm>
+- https://api-app-capstone.herokuapp.com/media/3
+- https://api-app-capstone.herokuapp.com/country/Germany
 - https://api-app-capstone.herokuapp.com/albums
 - https://api-app-capstone.herokuapp.com/sales
 
