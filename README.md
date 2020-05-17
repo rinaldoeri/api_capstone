@@ -37,7 +37,7 @@ input md_id with one of the MediaTypeId as below :
     
 3. /country/<country_nm>, method = GET
 Dynamic Endpoint, returning total sales base on country.
-input nama with the country name
+input country_nm with the country name
 
 4. /albums, method = GET
 Static Endpoint, returning total sales and mean of album.
