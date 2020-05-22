@@ -113,7 +113,7 @@ def get_empsales():
                                   GROUP BY BillingCountry \
                                   ORDER BY FullName, TotalSales", db_conn)
 
-    dt_sales_count = emp_sales_count.stack()                               
+    dt_sales_count = emp_sales_count.fillna(0).stack()                               
     return(dt_sales_count.to_json())
 
 if __name__ == '__main__':
