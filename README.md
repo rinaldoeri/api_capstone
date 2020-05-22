@@ -45,12 +45,16 @@ Static Endpoint, returning total sales and mean of album.
 5. /sales, method = GET
 Static Endpoint, returning total sales of Sales Support Agent per-month period.
 
+6. /empsales, method = GET
+Static Endpoint, returning total sales of Sales Support in every country.
+
 If you want to try it, you can access (copy-paste the link as below) : 
 - https://api-app-capstone.herokuapp.com/employee
 - https://api-app-capstone.herokuapp.com/media/3
 - https://api-app-capstone.herokuapp.com/country/Germany
 - https://api-app-capstone.herokuapp.com/albums
 - https://api-app-capstone.herokuapp.com/sales
+- https://api-app-capstone.herokuapp.com/empsales
 
 
 ## Deploy Flask API to heroku App

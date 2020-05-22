@@ -49,6 +49,8 @@ def get_genre(country_nm):
                                           inv.BillingCountry = ? \
                                           GROUP BY Genre \
                                           ORDER BY Total DESC", db_conn, params=(country_nm,))
+
+    dt_country_sales['Media_Nm'] = dt_country_sales['Media_Nm'].astype('category', errors='raise')
     return(dt_country_sales.to_json())   
 
 #--mendapatkan total penjualan album
@@ -90,9 +92,28 @@ def get_sale():
     dt_sales = pd.crosstab(index=emp_sales['Period'],
                            columns=emp_sales['FullName'],
                            values=emp_sales['TotalSales'],
-                           aggfunc = 'sum')
+                           aggfunc = 'sum').fillna(0)
     return(dt_sales.to_json())
 
+#--mendapatkan total sales per-employee untuk setiap negara
+@app.route('/empsales', methods=['GET'])
+def get_empsales():
+    db_conn = sqlite3.connect("chinook.db")
+    emp_sales_count = pd.read_sql_query("SELECT (emp.FirstName||' '||emp.LastName) as FullName, \
+                                      sum(inv.Total) as TotalSales, inv.BillingCountry as Country \
+                                  FROM \
+                                  employees as emp, customers as cst, invoices as inv \
+                                  WHERE \
+                                  emp.EmployeeId = +cst.SupportRepId \
+                                  AND \
+                                  cst.CustomerId = +inv.CustomerId \
+                                  AND \
+                                  emp.Title = 'Sales Support Agent' \
+                                  GROUP BY BillingCountry \
+                                  ORDER BY FullName, TotalSales", db_conn)
+
+    dt_sales_count = emp_sales_count.stack()                               
+    return(dt_sales_count.to_json())
 
 if __name__ == '__main__':
      app.run(debug=True, port=5000)

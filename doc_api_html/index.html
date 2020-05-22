@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>
+			Algoritma Capstone API
+		</title>
+		<header>
+			<h1 style="text-align:center">Data Visualization Capstone API</h1>
+		</header>
+	</head>
+  <body>
+
+    <h1>About Capstone-API</h1>
+     <p>This is Algoritma's Python for Data Analysis Capstone Project. 
+This project aims to create a simple API to fetch data from 'chinook.db'. 
+we demand data to be accessible. And we create an API for anyone who are granted access to the data for collect them and get the information from data. 
+In this capstone project, we create Flask Application as an API and deploy it to Heroku Web Hosting. <p>
+
+	<h2>Dependencies</h2>
+	<ul>
+	 <p>- Pandas(pip install pandas)</br>
+     - Flask(pip install flask)</br>
+     - Gunicorn(pip install gunicorn)</br>
+	 </p>
+	</ul> 
+
+   <h2>Goal</h2>
+	<ul>
+	 <p>1.Create Flask API App</br>
+     2.Implements data wrangling</br>
+     3.Build API Documentation</br>
+     4.Deploy to Heroku</br></p>
+	</ul></br>
+	 
+     <p>We have deployed a simple example on : https://api-app-capstone.herokuapp.com/ </br>
+Here's the list of its endpoints: </p>
+
+<ul>
+1. /employee, method = GET</br>
+Static Endpoint, returning all data of employee.</br>
+Return data to JSON format with "return(dt_emp.to_json())"</br></br>
+
+2. /media/<md_id>, method = GET
+Dynamic Endpoint, returning total sales from country base on media type.</br>
+input md_id with one of the MediaTypeId as below :</br>
+- 1 (MPEG audio file)</br>
+- 2 (Protected AAC audio file)</br>
+- 3 (Protected MPEG-4 video file)</br>
+- 4 (Purchased AAC audio file)</br>
+- 5 (AAC audio file)</br>
+Return data to JSON format with "return(dt_md_sales.to_json())"</br></br> 
+
+3. /country/<country_nm>, method = GET</br> 
+Dynamic Endpoint, returning total sales base on country.</br> 
+input country_nm with the country name</br>
+Return data to JSON format with "return(dt_country_sales.to_json())"</br></br>  
+
+4. /albums, method = GET</br>
+Static Endpoint, returning total sales and mean of album.</br>
+Return data to JSON format with "return(dt_album.to_json())"</br></br>
+
+5. /sales, method = GET</br>
+Static Endpoint, returning total sales of Sales Support Agent per-month period.</br>
+Return data to JSON format with "return(dt_sales.to_json())"</br></br>
+
+6. /empsales, method = GET</br>
+Static Endpoint, returning total sales of Sales Support Agent per-month period.</br>
+Return data to JSON format with "return(dt_sales_count.to_json())"</br>
+</ul></br>
+
+<p>If you want to try it, you can access (klik the link as below) :</br>  
+- <a href="https://api-app-capstone.herokuapp.com/employee">Employee</a></br> 
+- <a href="https://api-app-capstone.herokuapp.com/media/3">Media</a></br> 
+- <a href="https://api-app-capstone.herokuapp.com/country/Germany">Country</a></br> 
+- <a href="https://api-app-capstone.herokuapp.com/albums">Albums</a></br> 
+- <a href="https://api-app-capstone.herokuapp.com/sales">Sales</a></br>
+- <a href="https://api-app-capstone.herokuapp.com/empsales">EmpSales</a></p></br>
+
+	<h2>Deploy Flask API to heroku App</h2>
+<p>For deploy the API App to heroku follow the step as below :</p>
+<ul>
+- go to https://www.heroku.com/ and login</br>
+- klik New -> klik Create new app</br>
+- Input App name (the app name must be unique)</br>
+- klik Create app</br>
+</ul>
+<p>Now the heroku app has been created,</br> 
+the next step is connected the heroku app with github repository.</br></p>
+<ul>
+- Select Deploy</br>
+- In Deployment method, klik GitHub</br>
+- klik Search to find github repository and select it</br>
+- klik Deploy Branch
+</ul></br>
+
+<p>
+now the heroku app has been connected with github repository,
+and the API is ready to run.
+</p>
+
+  </body>
+</html>
