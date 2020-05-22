@@ -29,6 +29,7 @@ def get_track(md_id):
                                      md_typ.MediaTypeId = %d \
                                      GROUP BY Genre \
                                      ORDER BY Total" %int(md_id), db_conn)
+    dt_md_sales['Genre'] = dt_md_sales['Genre'].astype('category', errors='raise')                                 
     return(dt_md_sales.to_json())
 
 #--mendapatkan total sales dari suatu negara
